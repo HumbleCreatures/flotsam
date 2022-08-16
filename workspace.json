@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "flotsam-web": "apps/flotsam-web",
+    "flotsam-web-e2e": "apps/flotsam-web-e2e"
+  }
+}
