@@ -2,9 +2,77 @@
 
 # Flotsam
 
-This project was generated using [Nx](https://nx.dev).
+## Week plan
+### What to build
+Modern boat incurances.
+Should be in Swedish and English.
+* Register as a new customer
+* Add new boat
+* List all my boats
+* Show monthly cost dependent on boats
+* Remove boat
+* Create incident connected to a boat
+* List all incidents
+* Comment an incident.
+* Login with "bankid"
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+### Week 1
+
+#### Setting up NX
+Below are our core plugins:
+Setup workspace `npx create-nx-workspace@latest` to generate a works space and a react application with styled components.
+
+Start server `nx run flotsam-web:serve:development`
+
+Run `nx g @nrwl/react:lib my-lib` to generate an library.
+
+[NX VS Code plugin](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console)
+[React Beta documentation](https://beta.reactjs.org/)
+[Hooks](https://www.youtube.com/watch?v=TNhaISOUy6Q)
+[TypeScript](https://www.youtube.com/watch?v=zQnBQ4tB3ZA)
+
+### Week 2
+[Storybook](https://www.youtube.com/watch?v=gdlTFPebzAU)
+
+### Week 3
+[Redux](https://www.youtube.com/watch?v=_shA5Xwe8_4)
+
+### Week 4
+
+### Week 5
+
+### Week 6
+### Week 7
+
+
+
+
+Install new stystem:
+`npm install --save-dev @nrwl/next`
+`npx nx g @nrwl/next:app my-new-next-app`
+
+
+- [React](https://reactjs.org)
+  - `npm install --save-dev @nrwl/react`
+- Web (no framework frontends)
+  - `npm install --save-dev @nrwl/web`
+- [Angular](https://angular.io)
+  - `npm install --save-dev @nrwl/angular`
+- [Nest](https://nestjs.com)
+  - `npm install --save-dev @nrwl/nest`
+- [Express](https://expressjs.com)
+  - `npm install --save-dev @nrwl/express`
+- [Node](https://nodejs.org)
+  - `npm install --save-dev @nrwl/node`
+
+There are also many  you could add.
+
+## Generate an application
+
+Run `nx g @nrwl/react:app my-app` to generate an application.
+
+
+
 
 🔎 **Smart, Fast and Extensible Build System**
 
