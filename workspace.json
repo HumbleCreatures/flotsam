@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "flotsam-auth": "apps/flotsam-auth",
     "flotsam-native": "apps/flotsam-native",
     "flotsam-native-e2e": "apps/flotsam-native-e2e",
     "flotsam-next": "apps/flotsam-next",
