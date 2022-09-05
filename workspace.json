@@ -7,6 +7,8 @@
     "flotsam-native-e2e": "apps/flotsam-native-e2e",
     "flotsam-next": "apps/flotsam-next",
     "flotsam-next-e2e": "apps/flotsam-next-e2e",
+    "flotsam-shared": "libs/flotsam-shared",
+    "flotsam-ui": "libs/flotsam-ui",
     "flotsam-web": "apps/flotsam-web",
     "flotsam-web-e2e": "apps/flotsam-web-e2e"
   }

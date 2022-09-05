@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@flotsam/flotsam-shared": ["libs/flotsam-shared/src/index.ts"],
+      "@flotsam/flotsam-ui": ["libs/flotsam-ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

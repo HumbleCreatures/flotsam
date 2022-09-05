@@ -7,10 +7,18 @@ import * as express from 'express';
 import { keystore, loadKeys } from './certificateRetriver';
 import { v4 as uuidv4 } from 'uuid';
 import * as crypto from "crypto";
-import { generateAccessToken, generateRefreshToken } from './TokenFactory';
+import { generateAccessToken, generateRefreshToken } from './tokenFactory';
 
 const app = express();
-const store: LoginSession[] = [];
+const sessionStore: LoginSession[] = [];
+const tokenStore: RefreshToken[] = [];
+
+type RefreshToken = {
+  id: string;
+  pnr: string;
+  created: Date;
+  consumed: boolean;
+}
 
 type LoginSession = {
   id: string;
@@ -41,13 +49,13 @@ app.get('/api/jwk/:kid', async (req, res) => {
 app.post('/api/init', async (req, res) => {
   const { pnr, verificationSecret } = req.body;
   const id =  uuidv4();
-  store.push({verificationSecret, status: Status.Init, pnr, id, created: new Date()});
+  sessionStore.push({verificationSecret, status: Status.Init, pnr, id, created: new Date()});
   res.send({ sessionId: id });
 });
 
 app.post('/api/status', async (req, res) => {
   const { sessionId } = req.body;
-  const session = store.find(s => s.id === sessionId);
+  const session = sessionStore.find(s => s.id === sessionId);
   if (!session) { return res.status(404).send({ error: 'Session not found' }); };
   if(session.status === Status.Init) {
     session.status = Status.Open;
@@ -63,9 +71,29 @@ app.post('/api/status', async (req, res) => {
   res.send({ status: session.status });
 });
 
+const getCookieOptions = (): express.CookieOptions => ({
+  httpOnly: true,
+  maxAge: 60 * 1000 * 60,
+  sameSite: 'none',
+  secure: true,
+});
+
 app.post('/api/token', async (req, res) => {
   const { tokenKey, verifyingString  } = req.body;
-  const session = store.find(s => s.tokenKey === tokenKey);
+
+  if(!tokenKey) {
+    const refreshToken = req.cookies[`refreshToken`];
+    if(!refreshToken) {
+      return res.status(401).send({ error: 'No refresh token' });
+    }
+
+    const token = tokenStore.find(t => t.id === refreshToken);
+    token.consumed = true;
+    tokenStore.push({...token, created: new Date(), consumed: false, id: uuidv4()});
+
+  }
+
+  const session = sessionStore.find(s => s.tokenKey === tokenKey);
   if (!session) { return res.status(404).send({ error: 'Token key not found' }); };
 
   if(session.status !== Status.Accepted) {
@@ -82,8 +110,9 @@ app.post('/api/token', async (req, res) => {
 
   const accessToken =  await generateAccessToken({ pnr: session.pnr });
   const refreshToken = await generateRefreshToken({ pnr: session.pnr });
-
   session.status = Status.Closed;
+
+  res.cookie(`refreshToken`, refreshToken, getCookieOptions());
   return res.send({ accessToken });
 
 });
