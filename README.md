@@ -47,8 +47,11 @@ Bank ID
 JWT
 
 ### Async assignment
-
+Use the Assignment Client.
+List all assignments in order of User name.
+Bonus. Make it as 
 ### React assignment
+Create a react application where you can add a string to
 
 ### Design material
 [Images](https://www.flickr.com/search/?q=small+boat&l=4)

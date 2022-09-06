@@ -10,9 +10,19 @@ const StyledApp = styled.div`
 export function App() {
   const [appState, setAppState] = useState({ animate: false });
 
+
   return (
     <StyledApp>
       <Parent></Parent>
+
+    </StyledApp>
+  );
+}
+
+export default App;
+
+
+/*
       <div>
         Breath:
         <Breathe></Breathe>
@@ -26,8 +36,4 @@ export function App() {
           <BouncyDiv></BouncyDiv>
         </div>
       </div>
-    </StyledApp>
-  );
-}
-
-export default App;
+*/

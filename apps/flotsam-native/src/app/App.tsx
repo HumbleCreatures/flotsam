@@ -42,7 +42,7 @@ export const App = () => {
           <View style={styles.section}>
             <Text style={styles.textLg}>Hello there,</Text>
             <Text style={[styles.textXL, styles.appTitleText]} testID="heading">
-              Welcome FlotsamNative 👋
+              Welcome FlotsamNative 👋👋👋👋👋👋
             </Text>
           </View>
           <View style={styles.section}>

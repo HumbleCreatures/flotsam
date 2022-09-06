@@ -3,6 +3,7 @@ import { Child } from "./child";
 
 export function Parent() {
   const [stateChild, setStateChild] = useState({ name: 'init name' });
+
   return (
     <div>
       <button onClick={() => {
@@ -11,10 +12,10 @@ export function Parent() {
       }}>Update name</button>
 
       <button onClick={() => {
-        setStateChild({...stateChild, name: 'update reference' })
+        setStateChild({ name: 'update reference' })
       }}>Update reference</button>
       <h1>Child </h1>
-      <Child child={stateChild} />
+      <Child name="23" />
     </div>
   );
 }
