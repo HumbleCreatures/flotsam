@@ -1,0 +1,11 @@
+.baseButton {
+    border: none;
+    border-radius: 3px;
+    padding: 12px;
+    color: white;
+    background-color: blue;
+}
+
+.buttonSecondary {
+    background-color: darkgray;
+}

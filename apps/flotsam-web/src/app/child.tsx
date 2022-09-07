@@ -20,7 +20,7 @@ export function Child({ name } : childInput) : JSX.Element {
     name: 'child name',
     friend: {
       name: 'friend name',
-      typeOfFriend: 'bes'
+      typeOfFriend: friendEnum.best
     }
   }
   return (
@@ -30,8 +30,8 @@ export function Child({ name } : childInput) : JSX.Element {
   );
 }
 
-export async function Calculator (input: childInput | extendedChildInput) : Promise<number> {
-  return (
-   a +b
-  );
-}
+// export async function Calculator (input: childInput | extendedChildInput) : Promise<number> {
+//   return (
+//    a + b
+//   );
+// }
