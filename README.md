@@ -57,3 +57,6 @@ Create a react application where you can add a string to
 [Images](https://www.flickr.com/search/?q=small+boat&l=4)
 [Colors](https://coolors.co/d00000-ffba08-3f88c5-032b43-136f63)
 [Font](https://fonts.google.com/specimen/Roboto+Slab)
+
+### Videos
+[Fireship](https://www.youtube.com/c/Fireship)
