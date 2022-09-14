@@ -6,6 +6,8 @@ import './App.css';
 import ButtonInlineStyling from './ButtonInlineStyling';
 import ButtonCSSModule from './ButtonCSSModule';
 import ButtonStyledComponents from './ButtonStyledComponents';
+import Counter from './Counter';
+import CatFact from './CatFact';
 
 const StyledApp = styled.div`
   // Your style here
@@ -23,8 +25,10 @@ export function App() {
 
   return (
     <StyledApp>
-      <Parent></Parent>
-      <button style={myButtonStyle}>Klicka här</button>
+      <CatFact />
+      {/* <Counter /> */}
+      {/* <Parent></Parent> */}
+      {/* <button style={myButtonStyle}>Klicka här</button>
       <ButtonInlineStyling>Inlined styled button (Primary)</ButtonInlineStyling>
       <ButtonInlineStyling variant='secondary'>Inlined styled button (Secondary)</ButtonInlineStyling>
       <br/>
@@ -32,7 +36,7 @@ export function App() {
       <ButtonCSSModule variant="secondary">Button using CSS module (Secondary)</ButtonCSSModule>
       <br/>
       <ButtonStyledComponents>Button using Styled components (Primary)</ButtonStyledComponents>
-      <ButtonStyledComponents variant="secondary">Button using Styled components (Secondary)</ButtonStyledComponents>
+      <ButtonStyledComponents variant="secondary">Button using Styled components (Secondary)</ButtonStyledComponents> */}
 
     </StyledApp>
   );

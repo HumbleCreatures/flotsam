@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonStyledComponents } from './ButtonStyledComponents';
+import ButtonStyledComponents from './ButtonStyledComponents';
 
 export default {
   component: ButtonStyledComponents,

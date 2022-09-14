@@ -6,7 +6,7 @@ export default {
   title: 'TranslatedComponent',
 } as ComponentMeta<typeof TranslatedComponent>;
 
-const Template: ComponentStory<typeof TranslatedComponent> = (args) => (
+const Template: ComponentStory<typeof TranslatedComponent> = (args: any) => (
   <TranslatedComponent {...args} />
 );
 

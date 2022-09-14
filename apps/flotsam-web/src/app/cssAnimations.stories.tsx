@@ -6,9 +6,9 @@ export default {
   title: 'Breathe',
 } as ComponentMeta<typeof Breathe>;
 
-const Template: ComponentStory<typeof Breathe> = (args) => (
-  <Breathe {...args} />
-);
+// const Template: ComponentStory<typeof Breathe> = (args) => (
+//   <Breathe {...args} />
+// );
 
-export const Primary = Template.bind({});
-Primary.args = {};
+// export const Primary = Template.bind({});
+// Primary.args = {};

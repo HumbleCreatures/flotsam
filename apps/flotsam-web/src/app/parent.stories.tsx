@@ -6,7 +6,7 @@ export default {
   title: 'Parent',
 } as ComponentMeta<typeof Parent>;
 
-const Template: ComponentStory<typeof Parent> = (args) => <Parent {...args} />;
+// const Template: ComponentStory<typeof Parent> = (args) => <Parent {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {};
+// export const Primary = Template.bind({});
+// Primary.args = {};

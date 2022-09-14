@@ -6,7 +6,7 @@ export default {
   title: 'About',
 } as ComponentMeta<typeof About>;
 
-const Template: ComponentStory<typeof About> = (args) => <About {...args} />;
+const Template: ComponentStory<typeof About> = (args: any) => <About {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
