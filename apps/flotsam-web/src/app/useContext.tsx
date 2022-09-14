@@ -11,11 +11,16 @@ const themes = {
   }
 };
 
-const ThemeContext = React.createContext(themes.light);
+type FormContext = {
+  firstName?: string;
+  lastName?: string;
+}
+
+const ThemeContext = React.createContext<FormContext>({});
 
 function App() {
   return (
-    <ThemeContext.Provider value={themes.dark}>
+    <ThemeContext.Provider value={{}}>
       <Toolbar />
     </ThemeContext.Provider>
   );
@@ -32,7 +37,7 @@ function Toolbar() {
 function ThemedButton() {
   const theme = useContext(ThemeContext);
   return (
-    <button style={{ background: theme.background, color: theme.foreground }}>
+    <button style={{ background: theme.firstName, color: theme.lastName }}>
       I am styled by theme context!
     </button>
   );

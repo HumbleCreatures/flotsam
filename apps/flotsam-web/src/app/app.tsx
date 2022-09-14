@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { BouncyDiv, Breathe, WidthTransition } from './cssAnimations';
+import { MyForm } from './form';
 import { Parent } from './parent';
 
 const StyledApp = styled.div`
@@ -13,7 +14,7 @@ export function App() {
 
   return (
     <StyledApp>
-      <Parent></Parent>
+      <MyForm></MyForm>
 
     </StyledApp>
   );
