@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { BouncyDiv, Breathe, WidthTransition } from './cssAnimations';
+import { MyForm } from './form';
 import { Parent } from './parent';
 import './App.css';
 import ButtonInlineStyling from './ButtonInlineStyling';
@@ -26,19 +27,7 @@ export function App() {
 
   return (
     <StyledApp>
-      <LoginForm />
-      {/* <CatFact /> */}
-      {/* <Counter /> */}
-      {/* <Parent></Parent> */}
-      {/* <button style={myButtonStyle}>Klicka här</button>
-      <ButtonInlineStyling>Inlined styled button (Primary)</ButtonInlineStyling>
-      <ButtonInlineStyling variant='secondary'>Inlined styled button (Secondary)</ButtonInlineStyling>
-      <br/>
-      <ButtonCSSModule>Button using CSS module (Primary)</ButtonCSSModule>
-      <ButtonCSSModule variant="secondary">Button using CSS module (Secondary)</ButtonCSSModule>
-      <br/>
-      <ButtonStyledComponents>Button using Styled components (Primary)</ButtonStyledComponents>
-      <ButtonStyledComponents variant="secondary">Button using Styled components (Secondary)</ButtonStyledComponents> */}
+      <MyForm></MyForm>
 
     </StyledApp>
   );

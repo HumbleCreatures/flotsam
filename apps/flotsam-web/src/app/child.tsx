@@ -2,7 +2,6 @@ export type childInput = {
   name: string;
 }
 
-type friendType = 'best' | 'good' | undefined;
 
 enum friendEnum {
   best = 'best',
