@@ -8,6 +8,7 @@ import ButtonCSSModule from './ButtonCSSModule';
 import ButtonStyledComponents from './ButtonStyledComponents';
 import Counter from './Counter';
 import CatFact from './CatFact';
+import LoginForm from './LoginForm';
 
 const StyledApp = styled.div`
   // Your style here
@@ -25,7 +26,8 @@ export function App() {
 
   return (
     <StyledApp>
-      <CatFact />
+      <LoginForm />
+      {/* <CatFact /> */}
       {/* <Counter /> */}
       {/* <Parent></Parent> */}
       {/* <button style={myButtonStyle}>Klicka här</button>
