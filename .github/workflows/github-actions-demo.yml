@@ -15,3 +15,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - uses: mansagroup/nrwl-nx-action@v2
+        with:
+          targets: lint,test,build
+          all: 'true'
