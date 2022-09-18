@@ -2,9 +2,12 @@ name: GitHub Actions Demo
 on: [push, pull_request]
 jobs:
   Explore-GitHub-Actions:
-    runs-on: node:18.9.0-alpine3.15
+    runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
       - uses: actions/checkout@v2
         name: Checkout
         with:
