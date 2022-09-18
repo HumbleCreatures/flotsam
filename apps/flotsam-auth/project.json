@@ -10,7 +10,8 @@
         "outputPath": "dist/apps/flotsam-auth",
         "main": "apps/flotsam-auth/src/main.ts",
         "tsConfig": "apps/flotsam-auth/tsconfig.app.json",
-        "assets": ["apps/flotsam-auth/src/assets"]
+        "assets": ["apps/flotsam-auth/src/assets"],
+        "generatePackageJson": true
       },
       "configurations": {
         "production": {

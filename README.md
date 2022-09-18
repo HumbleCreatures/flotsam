@@ -58,5 +58,8 @@ Create a react application where you can add a string to
 [Colors](https://coolors.co/d00000-ffba08-3f88c5-032b43-136f63)
 [Font](https://fonts.google.com/specimen/Roboto+Slab)
 
+### Github Actions
+[Video](https://www.youtube.com/watch?v=R8_veQiYBjI)
+
 ### Videos
 [Fireship](https://www.youtube.com/c/Fireship)
