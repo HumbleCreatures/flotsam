@@ -7,7 +7,7 @@ export const PropLogicComponentToTest = ({message}:{ message?:string }) => {
 }
 
 export const EventComponentToTest = ({message, doStuff}:{message:string, doStuff:(input:string)=>void}) => {
-  return <button onClick={() => {doStuff(message)}}></button>
+  return <button onClick={() => {doStuff(message)}}>Click me!</button>
 }
 
 
