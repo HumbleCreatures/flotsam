@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 type TokenData = {
-  pnr: string;
+  pnr: string; // Personnummer
 };
 
 const privateCert = fs.readFileSync(path.join(__dirname, '/assets/jwt.key') , 'utf8');
