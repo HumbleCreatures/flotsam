@@ -17,17 +17,19 @@ jobs:
 # #     - run: npx nx format:check
 #       - run: npx nx affected --target=lint --parallel=3
 #       - run: npx nx affected --target=test --parallel=3 --ci --code-coverage
+      - run: echo "$SCW_ACCESS_KEY" 
+        env:
+            SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
       - name: S3 bucket listing
-        uses: emilcardell/scw-s3-action@v0.0.2
+        uses: remyleone/scw-s3-action@v0.0.2
         with:
           args: s3 ls s3://cdn-flotsam
         env:
           SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
           SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
-          SCW_BUCKETNAME: cdn-flotsam
           SCW_REGION: "fr-par"
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      # - name: Set up QEMU
+      #   uses: docker/setup-qemu-action@v2
+      # - name: Set up Docker Buildx
+      #   uses: docker/setup-buildx-action@v2
 #      - run: npx nx run flotsam-web:build
