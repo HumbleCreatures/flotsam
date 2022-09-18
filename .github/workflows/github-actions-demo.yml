@@ -17,4 +17,7 @@ jobs:
       - run: npx nx format:check
       - run: npx nx affected --target=lint --parallel=3
       - run: npx nx affected --target=test --parallel=3 --ci --code-coverage
-      - run: npx nx affected --target=build --parallel=3
+      - run: npx nx run flotsam-web:build
+      - uses: "quentinbrosse/scaleway-actions/object-storage@master"
+        secrets: ["SCW_ACCESS_KEY", "SCW_SECRET_KEY"]
+        args: "put ./dist/app/flotsam-web s3://cdn-flotsam"
