@@ -18,6 +18,11 @@ jobs:
       - run: npx nx affected --target=lint --parallel=3
       - run: npx nx affected --target=test --parallel=3 --ci --code-coverage
       - run: npx nx run flotsam-web:build
-      - uses: "quentinbrosse/scaleway-actions/object-storage@master"
-        secrets: ["SCW_ACCESS_KEY", "SCW_SECRET_KEY"]
-        args: "put ./dist/app/flotsam-web s3://cdn-flotsam"
+      - name: S3 bucket listing
+        uses: remyleone/scw-s3-action@v0.0.2
+        with:
+          args: s3 ls s3://cdn-flotsam
+        env:
+          SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
+          SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
+          SCW_REGION: "fr-par-1"
