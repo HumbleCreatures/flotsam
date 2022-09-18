@@ -18,7 +18,7 @@ jobs:
       - run: npx nx affected --target=lint --parallel=3
       - run: npx nx affected --target=test --parallel=3 --ci --code-coverage
       - name: S3 bucket listing
-        uses: emilcardell/scw-s3-action@latest
+        uses: emilcardell/scw-s3-action@v0.0.2
         with:
           args: s3 ls s3://cdn-flotsam
         env:
