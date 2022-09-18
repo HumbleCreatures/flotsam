@@ -18,12 +18,13 @@ jobs:
       - run: npx nx affected --target=lint --parallel=3
       - run: npx nx affected --target=test --parallel=3 --ci --code-coverage
       - name: S3 bucket listing
-        uses: remyleone/scw-s3-action@v0.0.2
+        uses: emilcardell/scw-s3-action@latest
         with:
           args: s3 ls s3://cdn-flotsam
         env:
           SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
           SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
+          SCW_BUCKETNAME: cdn-flotsam
           SCW_REGION: "fr-par-1"
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
