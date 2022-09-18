@@ -28,9 +28,3 @@ export function Child({ name } : childInput) : JSX.Element {
     </div>
   );
 }
-
-// export async function Calculator (input: childInput | extendedChildInput) : Promise<number> {
-//   return (
-//    a + b
-//   );
-// }
