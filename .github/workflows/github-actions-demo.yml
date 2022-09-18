@@ -14,7 +14,7 @@ jobs:
           fetch-depth: '0'
       - name: Install dependencies
         run: npm ci
-      - uses: mansagroup/nrwl-nx-action@v2
-        with:
-          targets: lint,test,build
-          all: 'true'
+      - name: Run lint
+        run: npx nx run-many --target=lint
+      - name: Run test
+        run: npx nx run-many --target=test
