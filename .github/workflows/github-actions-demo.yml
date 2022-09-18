@@ -23,7 +23,7 @@ jobs:
       - name: S3 bucket listing
         uses: remyleone/scw-s3-action@v0.0.2
         with:
-          args: s3 put ./dist/apps/flotsam-web s3://cdn-flotsam
+          args: s3 sync ./dist/apps/flotsam-web s3://cdn-flotsam
         env:
           SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
           SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
