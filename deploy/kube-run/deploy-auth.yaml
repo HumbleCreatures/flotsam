@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hasura
+    hasuraService: custom
+  name: hasura
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flotsam-auth
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: flotsam-auth
+    spec:
+      containers:
+      - image: hasura/graphql-engine:fcec044
+        imagePullPolicy: IfNotPresent
+        name: flotsam-auth
+        ports:
+        - containerPort: 3333
+          protocol: TCP
+        resources: {}
