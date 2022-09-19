@@ -34,14 +34,14 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: rg.fr-par.scw.cloud/namespace-flotsam
-          username: nologin 
+          username: nologin
           password: ${{ secrets.SCW_SECRET_KEY }}
       - run: npx nx run flotsam-auth:build
       - name: copy file
         uses: canastro/copy-file-action@master
         with:
-          source: "./apps/flotsam-auth/package.json"
-          target: "./dist/apps/flotsam-auth/package.json"
+          source: "./apps/flotsam-auth/Dockerfile"
+          target: "./dist/apps/flotsam-auth/Dockerfile"
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
