@@ -37,6 +37,10 @@ enum Status {
   Canceled = 'canceled'
 }
 
+app.get('/', async (req, res) => {
+  return res.json({ message: 'Welcome to flotsam-auth!' });
+});
+
 app.get('/api/jwk', async (req, res) => {
   await loadKeys()
   res.send(keystore.toJSON());

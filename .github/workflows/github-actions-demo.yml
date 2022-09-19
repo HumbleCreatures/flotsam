@@ -42,9 +42,20 @@ jobs:
         with:
           source: "./apps/flotsam-auth/package.json"
           target: "./dist/apps/flotsam-auth/package.json"
+      - uses: benjlevesque/short-sha@v1.2
+        id: short-sha
+        with:
+          length: 7
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: flotsam-auth:${{ env.NX_BASE }}
+          tags: flotsam-auth:${{ env.SHA }}
           context: ./dist/apps/flotsam-auth
+      - name: Replace credentials
+        run: |
+          sed -e 's,__SHA__,'${{ env.SHA }}',g' "./deploy/kube2/deploy-auth.yaml" > "./deploy/kube-run/deploy-auth.yaml"
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update image to ${{ env.SHA }} in yamls 
+          file_pattern: './deploy/kube-run/*.yaml'
