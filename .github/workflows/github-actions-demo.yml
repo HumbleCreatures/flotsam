@@ -55,6 +55,7 @@ jobs:
           context: ./dist/apps/flotsam-auth
       - name: Replace sha
         run: |
+          mkdir ./deploy/kube-run
           sed -e 's,__SHA__,'${{ env.SHA }}',g' "./deploy/kube2/deploy-auth.yaml" > "./deploy/kube-run/deploy-auth.yaml"
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
