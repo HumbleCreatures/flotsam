@@ -1,1 +1,1 @@
-export * from './lib/flotsam-shared';
+export { getCatFact } from './lib/catFactClient';

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { getCatFact } from '@flotsam/flotsam-shared';
 
 const LoginForm = () => {
+
+    const [ loginMessage, setLoginMessage ] = useState('');
 
     type FormStateType = {
         username: {
@@ -28,8 +31,6 @@ const LoginForm = () => {
         },
     })
 
-    console.log('formState', formState);
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -44,10 +45,12 @@ const LoginForm = () => {
     }
     const isFormValid = (formData: FormStateType) => Object.keys(formData).reduce((prev, curr) => prev && formData[curr as keyof FormStateType].isValid, true);
 
-    const handleSubmit = (event: any) => {
+    const handleSubmit = async (event: any) => {
         event.preventDefault();
         if (isFormValid(formState)) {
-            fetch('www.hej.com', { method: 'POST', body: JSON.stringify(formState) })
+            //fetch('www.hej.com', { method: 'POST', body: JSON.stringify(formState) })
+            const catFact = await getCatFact();
+            setLoginMessage(catFact.fact);
         } else {
             const newFormState = { ...formState };
             Object.keys(formState).forEach(key => newFormState[key as keyof FormStateType].isTouched = true);
@@ -59,14 +62,15 @@ const LoginForm = () => {
         <div>
             <label>Användarnamn:</label><br />
             {formState.username.isTouched && !formState.username.isValid && <><span>Du har inte fyllt i användarnamn!</span><br /></>}
-            <input type="text" placeholder="Användarnamn" onBlur={handleBlur} onChange={handleChange} name="username" />
+            <input type="text" placeholder="Användarnamn" onBlur={handleBlur} onChange={handleChange} name="username" data-test-id="username" />
         </div>
         <div>
             <label>Password</label>
             {formState.password.isTouched && !formState.password.isValid && <span>Du har inte fyllt i lösenord!</span>}
-            <input type="password" placeholder="Lösenord" onBlur={handleBlur} onChange={handleChange} name="password" />
+            <input type="password" placeholder="Lösenord" onBlur={handleBlur} onChange={handleChange} name="password" data-test-id="password" />
         </div>
-        <button type="submit">Logga in</button>
+        <button data-test-id="login-form-button" type="submit">Logga in</button>
+        <div data-test-id="login-form-message">{loginMessage}</div>
     </form>
 }
 
