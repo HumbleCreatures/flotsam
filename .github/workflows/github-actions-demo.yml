@@ -46,5 +46,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: flotsam-auth:${{ env.NX_BASE }}
+          tags: |
+            rg.fr-par.scw.cloud/namespace-flotsam/flotsam-auth:${{ env.NX_BASE }}
           context: ./dist/apps/flotsam-auth
