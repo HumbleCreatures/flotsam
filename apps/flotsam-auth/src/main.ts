@@ -37,23 +37,23 @@ enum Status {
   Canceled = 'canceled'
 }
 
-app.get('/api/jwk', async (req, res) => {
+app.get('/jwk', async (req, res) => {
   await loadKeys()
   res.send(keystore.toJSON());
 });
-app.get('/api/jwk/:kid', async (req, res) => {
+app.get('/jwk/:kid', async (req, res) => {
   const key = keystore.get(req.params.kid);
   res.json(key).status(200);
 });
 
-app.post('/api/init', async (req, res) => {
+app.post('/init', async (req, res) => {
   const { pnr, verificationSecret } = req.body;
   const id =  uuidv4();
   sessionStore.push({verificationSecret, status: Status.Init, pnr, id, created: new Date()});
   res.send({ sessionId: id });
 });
 
-app.post('/api/status', async (req, res) => {
+app.post('/status', async (req, res) => {
   const { sessionId } = req.body;
   const session = sessionStore.find(s => s.id === sessionId);
   if (!session) { return res.status(404).send({ error: 'Session not found' }); };
@@ -78,7 +78,11 @@ const getCookieOptions = (): express.CookieOptions => ({
   secure: true,
 });
 
-app.post('/api/token', async (req, res) => {
+app.get('/healthz', async (req, res) => {
+  res.send('ok');
+});
+
+app.post('/token', async (req, res) => {
   const { tokenKey, verifyingString  } = req.body;
 
   if(!tokenKey) {
@@ -119,7 +123,7 @@ app.post('/api/token', async (req, res) => {
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+  console.log(`Listening at http://localhost:${port}`);
 });
 
 server.on('error', console.error);

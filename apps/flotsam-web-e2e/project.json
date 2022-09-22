@@ -13,6 +13,11 @@
       "configurations": {
         "production": {
           "devServerTarget": "flotsam-web:serve:production"
+        },
+        "development": {
+          "devServerTarget": "flotsam-web:serve:development",
+          "headed": true,
+          "watch": true
         }
       }
     },

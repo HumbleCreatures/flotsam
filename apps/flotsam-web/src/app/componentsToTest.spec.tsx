@@ -9,10 +9,17 @@ describe('Test a component that has different logic depending on a prop', () => 
     expect(element).toBeTruthy();
   });
 
-  it('should display default emssager if message is not set', () => {
+  it('should display default message if message is not set', () => {
     const {getByText} = render(<PropLogicComponentToTest />);
-    const element = getByText('There is no message');
+    const element = getByText('There is no message again');
+    const thirdElement = getByText('Third message');
+    expect(thirdElement).toBeTruthy();
     expect(element).toBeTruthy();
+  });
+
+  it('should display default message if message is not set with snapshot', () => {
+    const {baseElement} = render(<PropLogicComponentToTest />);
+    expect(baseElement).toMatchSnapshot();
   });
 });
 

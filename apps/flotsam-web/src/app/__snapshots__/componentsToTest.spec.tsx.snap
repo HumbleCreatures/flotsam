@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test a component that has different logic depending on a prop should display default message if message is not set with snapshot 1`] = `
+<body>
+  <div>
+    <div>
+      There is no message again
+    </div>
+    <div>
+      Another message
+    </div>
+    <div>
+      Third message
+    </div>
+  </div>
+</body>
+`;
