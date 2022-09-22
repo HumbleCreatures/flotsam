@@ -18,7 +18,7 @@ spec:
         app: flotsam-auth
     spec:
       containers:
-      - image: hasura/graphql-engine:__SHA__
+      - image: hasura/graphql-engine:fcec044
         imagePullPolicy: IfNotPresent
         name: flotsam-auth
         ports:
