@@ -9,4 +9,4 @@ RUN npm install
 # RUN npm ci --only=production
 
 EXPOSE 3333
-CMD [ "node", "app/main.js" ]
+CMD [ "node", "./main.js" ]
