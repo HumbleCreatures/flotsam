@@ -82,6 +82,10 @@ app.get('/healthz', async (req, res) => {
   res.send('ok');
 });
 
+app.get('/', async (req, res) => {
+  res.send('Welcome to flotsam auth!');
+});
+
 app.post('/token', async (req, res) => {
   const { tokenKey, verifyingString  } = req.body;
 

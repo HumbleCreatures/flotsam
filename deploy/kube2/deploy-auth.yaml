@@ -1,11 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: flotsam-auth
   labels:
-    app: hasura
-    hasuraService: custom
-  name: hasura
-  namespace: default
+    app: flotsam-auth
 spec:
   replicas: 1
   selector:
@@ -13,15 +11,27 @@ spec:
       app: flotsam-auth
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: flotsam-auth
     spec:
       containers:
-      - image: hasura/graphql-engine:__SHA__
-        imagePullPolicy: IfNotPresent
-        name: flotsam-auth
+      - name: flotsam-auth
+        image: rg.fr-par.scw.cloud/namespace-flotsam/flotsam-auth:04459eb
         ports:
-        - containerPort: 3333
-          protocol: TCP
-        resources: {}
+          - containerPort: 3333
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 3333
+          initialDelaySeconds: 3
+          periodSeconds: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flotsam-auth
+spec:
+  selector:
+    app.kubernetes.io/name: flotsam-auth
+  ports:
+    - port: 3333

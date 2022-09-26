@@ -4,8 +4,8 @@ metadata:
   name: nginx-ingress
   namespace: kube-system
   labels:
-    app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/part-of: ingress-nginx
+    app.kubernetes.io/name: nginx-ingress 
+    app.kubernetes.io/part-of: kube-system
 spec:
   type: LoadBalancer
   ports:
@@ -16,5 +16,5 @@ spec:
       name: https
       targetPort: 443
   selector:
-    app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/part-of: ingress-nginx
+    app.kubernetes.io/name: ingress-nginx-controller 
+    app.kubernetes.io/part-of: ingress

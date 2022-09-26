@@ -4,10 +4,10 @@ metadata:
   name: main-ingress
 spec:
   rules:
-    - host: test.49087273-8296-46cc-a82c-f08cb9623ce2.nodes.k8s.fr-par.scw.cloud
+    - host: test.0123decd-84f7-407f-b378-b0fca72291e9.nodes.k8s.fr-par.scw.cloud
       http:
         paths:
-          - path: /auth
+          - path: /auth(/|$)(.*)
             pathType: Prefix
             backend:
               service:
