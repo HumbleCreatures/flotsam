@@ -28,7 +28,9 @@ export function App() {
   return (
     <StyledApp>
       {/* <MyForm></MyForm> */}
-      <LoginForm />
+      {/* <LoginForm /> */}
+      <Counter />
+      <CatFact />
     </StyledApp>
   );
 }
