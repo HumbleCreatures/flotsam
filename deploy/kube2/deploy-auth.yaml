@@ -16,9 +16,7 @@ spec:
     spec:
       containers:
       - name: flotsam-auth
-        image: rg.fr-par.scw.cloud/namespace-flotsam/flotsam-auth:04459eb
-        ports:
-          - containerPort: 3333
+        image: rg.fr-par.scw.cloud/namespace-flotsam/flotsam-auth:898a0c9
         livenessProbe:
           httpGet:
             path: /healthz
@@ -32,6 +30,6 @@ metadata:
   name: flotsam-auth
 spec:
   selector:
-    app.kubernetes.io/name: flotsam-auth
+    app: flotsam-auth
   ports:
     - port: 3333
