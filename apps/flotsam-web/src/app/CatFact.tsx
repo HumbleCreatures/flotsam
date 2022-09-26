@@ -1,26 +1,24 @@
 import { useState, useEffect } from "react";
-
-type CatFactType = {
-    id?: number;
-    fact: string,
-    length: number
-}
+import { useAppDispatch, useAppSelector } from "./store/hooks";
+import { fetchCatFacts } from './store/reducers/catFactSlice';
 
 const CatFact = () => {
-    const [catFacts, setCatFacts] = useState<CatFactType[]>();
+
+    const dispatch = useAppDispatch();
+    const catFacts = useAppSelector(state => state.catfact.facts);
+    const status = useAppSelector(state => state.catfact.status);
 
     useEffect(() => {
-        const loadCats = async () => {
-            const response = await fetch('https://catfact.ninja/facts');
-            const catFactList = await response.json();
-
-            const catFactsWithId = catFactList.data.map((catFact: CatFactType, index: number) => ({ ...catFact, id: index}));
-            setCatFacts(catFactList.data);
-        }
-        loadCats();
+        dispatch(fetchCatFacts());
     }, [])
 
-    return <p>{ catFacts?.map(catFact => <p key={catFact.id}>{catFact.fact}</p>) }</p>
+    if (status === "pending") {
+        return <p>Laddar</p>
+    } else if (status === "failed") {
+        return <p>Nåt gick galet</p>
+    } else {
+        return <p>{catFacts.map(catFact => <p key={catFact.id}>{catFact.fact}</p>)}</p>;
+    }
 }
 
 export default CatFact;
