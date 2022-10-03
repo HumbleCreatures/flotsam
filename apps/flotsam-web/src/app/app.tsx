@@ -10,9 +10,8 @@ import ButtonStyledComponents from './ButtonStyledComponents';
 import Counter from './Counter';
 import CatFact from './CatFact';
 import LoginForm from './LoginForm';
-import SideMenu from './SideMenu';
-import MenuButton from './MenuButton';
 import AssignmentTest from './AssignmentTest';
+import { HamburgerIcon } from '@flotsam/flotsam-ui';
 
 const StyledApp = styled.div`
   // Your style here
@@ -37,7 +36,8 @@ export function App() {
       {/* <LoginForm /> */}
       {/* <Counter />
       <CatFact /> */}
-      <AssignmentTest/>
+      {/* <AssignmentTest/> */}
+      <HamburgerIcon size={24} color="red" hoverColor="blue" />
       {/* <SideMenu show={menuVisible} />
       <MenuButton show={menuVisible} onClick={toggleMenu} /> */}
 
