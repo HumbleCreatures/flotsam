@@ -10,9 +10,13 @@ import ButtonStyledComponents from './ButtonStyledComponents';
 import Counter from './Counter';
 import CatFact from './CatFact';
 import LoginForm from './LoginForm';
+import SideMenu from './SideMenu';
+import MenuButton from './MenuButton';
+import AssignmentTest from './AssignmentTest';
 
 const StyledApp = styled.div`
   // Your style here
+  height: 100%;
 `;
 
 const myButtonStyle = {
@@ -23,14 +27,20 @@ const myButtonStyle = {
 
 export function App() {
   const [appState, setAppState] = useState({ animate: false });
+  const [menuVisible, setMenuVisible] = useState(false);
 
+  const toggleMenu = () => setMenuVisible(!menuVisible)
 
   return (
     <StyledApp>
       {/* <MyForm></MyForm> */}
       {/* <LoginForm /> */}
-      <Counter />
-      <CatFact />
+      {/* <Counter />
+      <CatFact /> */}
+      <AssignmentTest/>
+      {/* <SideMenu show={menuVisible} />
+      <MenuButton show={menuVisible} onClick={toggleMenu} /> */}
+
     </StyledApp>
   );
 }
