@@ -1,0 +1,11 @@
+POST http://localhost:3333/user
+Content-Type: application/json
+Authorization: Basic am9uYXRhbjpiYW1zZQ==
+
+{
+  "username": "kalle",
+  "password": "123qweasd",
+  "firstname": "Kalle",
+  "lastname": "Andersson",
+  "birthyear": 1992
+}
