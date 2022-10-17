@@ -1,3 +1,8 @@
+
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 import { useState } from 'react';
 import styled from 'styled-components';
 import { BouncyDiv, Breathe, WidthTransition } from './cssAnimations';
@@ -26,6 +31,8 @@ const myButtonStyle = {
   fontSize: '20px'
 };
 
+const queryClient = new QueryClient()
+
 export function App() {
   const [appState, setAppState] = useState({ animate: false });
   const [menuVisible, setMenuVisible] = useState(false);
@@ -33,14 +40,14 @@ export function App() {
   const toggleMenu = () => setMenuVisible(!menuVisible)
 
   return (
-    <StyledApp>
-      {/* <MyForm></MyForm> */}
-      {/* <LoginForm /> */}
-      {/* <Counter />
+      <StyledApp>
+        {/* <MyForm></MyForm> */}
+        {/* <LoginForm /> */}
+        {/* <Counter />
       <CatFact /> */}
-      {/* <AssignmentTest/> */}
-      {/* <HamburgerIcon size={24} color="red" hoverColor="blue" /> */}
-      {/* <SideMenu show={menuVisible} />
+        {/* <AssignmentTest/> */}
+        {/* <HamburgerIcon size={24} color="red" hoverColor="blue" /> */}
+        {/* <SideMenu show={menuVisible} />
       <MenuButton show={menuVisible} onClick={toggleMenu} /> */}
       <SideMenu />
 

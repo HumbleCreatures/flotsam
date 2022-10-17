@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './reducers/counterSlice';
 import catFactReducer from './reducers/catFactSlice';
+import forumReducer from './reducers/forumSlice';
 
 export const store = configureStore({
     reducer: {
         counter: counterReducer,
-        catfact: catFactReducer
+        catfact: catFactReducer,
+        forum: forumReducer
     }
 })
 
