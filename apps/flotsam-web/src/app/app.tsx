@@ -13,6 +13,7 @@ import LoginForm from './LoginForm';
 import AssignmentTest from './AssignmentTest';
 import { HamburgerIcon } from '@flotsam/flotsam-ui';
 import SideMenu from './SideMenu';
+import { BoatList } from './BoatList';
 
 const StyledApp = styled.div`
   // Your style here
@@ -42,6 +43,8 @@ export function App() {
       {/* <SideMenu show={menuVisible} />
       <MenuButton show={menuVisible} onClick={toggleMenu} /> */}
       <SideMenu />
+
+      <div style={{margin: '100px'}}><BoatList /></div>
     </StyledApp>
   );
 }

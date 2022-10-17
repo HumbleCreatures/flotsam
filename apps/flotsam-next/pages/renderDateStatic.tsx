@@ -4,6 +4,7 @@ export function renderDateStatic({ staticDate }: { staticDate: string }) {
 }
 
 export async function getStaticProps() {
+
   return {
     props: {
       staticDate: new Date().toISOString(),

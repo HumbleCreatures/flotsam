@@ -63,3 +63,10 @@ Create a react application where you can add a string to
 
 ### Videos
 [Fireship](https://www.youtube.com/c/Fireship)
+
+
+### Docker
+Köra mongo
+https://www.npmjs.com/package/mongodb
+
+`docker run -d -p 27017:27017 --name test-mongo mongo:latest` 

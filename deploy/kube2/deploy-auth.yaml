@@ -5,7 +5,7 @@ metadata:
   labels:
     app: flotsam-auth
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: flotsam-auth
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flotsam-auth
-        image: rg.fr-par.scw.cloud/namespace-flotsam/flotsam-auth:898a0c9
+        image: rg.fr-par.scw.cloud/namespace-flotsam/flotsam-auth:d7b9f5c
         livenessProbe:
           httpGet:
             path: /healthz

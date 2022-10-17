@@ -10,12 +10,14 @@ const resources = {
       "Welcome to React": "Welcome to React and react-i18next"
     }
   },
-  se: {
+  'se': {
     translation: {
       "Welcome to React": "Välkommen till React och react-i18next"
     }
   }
 };
+
+i18n.changeLanguage('sv')
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next

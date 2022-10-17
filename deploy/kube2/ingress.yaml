@@ -6,7 +6,8 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - http:
+    - host: flotsam.humblecreatues.com
+      http:
         paths:
           - path: /auth
             pathType: Prefix

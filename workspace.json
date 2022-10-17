@@ -11,6 +11,7 @@
     "flotsam-shared": "libs/flotsam-shared",
     "flotsam-ui": "libs/flotsam-ui",
     "flotsam-web": "apps/flotsam-web",
-    "flotsam-web-e2e": "apps/flotsam-web-e2e"
+    "flotsam-web-e2e": "apps/flotsam-web-e2e",
+    "flotsam.graph": "apps/flotsam.graph"
   }
 }
